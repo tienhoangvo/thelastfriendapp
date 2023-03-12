@@ -3,7 +3,7 @@ import { parse } from 'url'
 import next from 'next'
 import express from 'express'
 import { Server } from 'socket.io'
-import { connectDB } from './services/database'
+import { connectDB } from './src/services/database'
 
 const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({ dev })

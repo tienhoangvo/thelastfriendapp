@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb'
+import type { ObjectId } from 'mongodb'
 import z from 'zod'
 
 export const channelSchema = z.object({

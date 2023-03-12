@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { ReactEventHandler } from 'react'
+import Button from '../components/Button'
+import Form from '../components/Form'
 import { userSchema } from '../models/schemas'
 
 const LoginPage = () => {
@@ -33,32 +35,37 @@ const LoginPage = () => {
     router.push('/')
   }
   return (
-    <div>
+    <div className="mx-auto w-full md:w-1/3 lg:w-1/5 mt-4">
       <Link href="/">Home</Link>
-      <h1>Login</h1>
-      <form onSubmit={formSubmitHandler}>
-        <div>
-          <label htmlFor="username">Username</label>
-          <input
+      <h1 className="text-xl font-bold text-center my-3">Login</h1>
+      <Form onSubmit={formSubmitHandler}>
+        <Form.Field>
+          <Form.Label htmlFor="username">Username</Form.Label>
+          <Form.Input
             type="text"
             name="username"
             id="username"
             autoComplete="username"
             required
           />
-        </div>
-        <div>
-          <label htmlFor="password">Password</label>
-          <input
+        </Form.Field>
+        <Form.Field>
+          <Form.Label htmlFor="password">Password</Form.Label>
+          <Form.Input
             type="password"
             name="password"
             id="password"
             autoComplete="password"
             required
           />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+        </Form.Field>
+        <Button
+          type="submit"
+          className="rounded bg-gray-800 text-gray-200 px-3 py-1"
+        >
+          Submit
+        </Button>
+      </Form>
     </div>
   )
 }
