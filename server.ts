@@ -1,22 +1,20 @@
-import { createServer } from "http";
-import { parse } from "url";
-import next from 'next';
-import express from 'express';
+import { createServer } from 'http'
+import { parse } from 'url'
+import next from 'next'
+import express from 'express'
 import { Server } from 'socket.io'
-import { connectDB } from "./services/connectDB";
+import { connectDB } from './services/database'
 
 const dev = process.env.NODE_ENV !== 'production'
 const nextApp = next({ dev })
 const expressApp = express()
-const server  = createServer(expressApp)
+const server = createServer(expressApp)
 const port = process.env.PORT || 3000
 const handle = nextApp.getRequestHandler()
 const io = new Server(server)
 
 connectDB().then(() => {
   console.log('DB connected')
-}).catch(reason => {
-  console.log(reason)
 })
 
 nextApp.prepare().then(() => {
@@ -33,5 +31,3 @@ nextApp.prepare().then(() => {
     console.log(`${socket.id} connected`)
   })
 })
-
-
