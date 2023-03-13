@@ -60,8 +60,21 @@ const LoginPage = () => {
           />
         </Form.Field>
         <Button
+          color="primary"
           type="submit"
-          className="rounded bg-gray-800 text-gray-200 px-3 py-1"
+        >
+          Submit
+        </Button>
+        <Button
+          color="secondary"
+          type="submit"
+        >
+          Submit
+        </Button>
+        <Button
+          color="tertiary"
+          type="submit"
+          disabled
         >
           Submit
         </Button>
